@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { StaticImageData } from "next/image";
 
 import lastTuesday from "@/lib/lastTuesday";
 import { Rating } from "@/cms/typesLowLevel";
@@ -21,7 +22,7 @@ export default function InfoComponent({
     <div className="flex border-y-2 sm:mx-2 py-4 my-4 text-blue-90 text-xs sm:text-base">
       <div className="info-component border-r-2">
         <Image
-          src={clockIcon}
+          src={clockIcon as StaticImageData}
           height={24}
           width={24}
           alt="Clock"
@@ -32,7 +33,7 @@ export default function InfoComponent({
       </div>
       <div className="info-component border-r-2">
         <Image
-          src={calendarIcon}
+          src={calendarIcon as StaticImageData}
           height={24}
           width={24}
           alt="Calendar"
@@ -42,7 +43,7 @@ export default function InfoComponent({
       </div>
       <div className="info-component">
         <Image
-          src={starIcon}
+          src={starIcon as StaticImageData}
           height={24}
           width={24}
           alt="Star"

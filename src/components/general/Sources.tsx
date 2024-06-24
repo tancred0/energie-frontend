@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 import { BlockContent } from "@/cms/typesLowLevel";
 import { PortableTextRenderer } from "@/cms/components";
@@ -12,7 +12,7 @@ export default function Sources({ sources }: { sources: BlockContent }) {
     >
       <div className="inline-flex gap-2 px-4 py-2 mb-6 rounded-full bg-blue-10 border-2 border-blue-90">
         <Image
-          src={infoIcon}
+          src={infoIcon as StaticImageData}
           height={24}
           width={24}
           alt="Infoicon"
