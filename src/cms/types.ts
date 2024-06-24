@@ -1,36 +1,54 @@
 import type {
   Seo,
+  ImageWithDetails,
   Slug,
   Rating,
-  AddSection,
   Faq,
+  BlockContent,
+  AddSections,
+  AssetReference,
 } from "./typesLowLevel";
 
 
 
-export interface StateData {
-  stateName: string;
-  stateSlug: Slug;
+export interface Blog {
+  title: string;
+  breadcrumbTitle: string;
+  slug: Slug;
+
+  public: boolean;
+  publishedAt: string;
   seo: Seo;
   rating: Rating;
+  readingTime: string;
+
+  introText: string;
+  summary: BlockContent;
+  mainImage: ImageWithDetails;
+
+  content: AddSections[];
+  sources: BlockContent;
+  faqTitle: string;
+  faqsList: Faq[];
 }
 
 
-export interface BlogPost {
-  public: boolean;
-  publishedAt: string;
-  rating: Rating;
-  title: string;
-  introText: string;
-  summary: string;
-  slug: Slug;
+export interface TopCategory {
+  content: Blog;
+}
+
+export interface MainCategory {
+  content: Blog;
+  topCategory: AssetReference;
+}
+
+export interface SubCategory {
+  content: Blog;
+  topCategory: AssetReference;
+  mainCategory: AssetReference;
+}
+
+export interface RatgeberBlog {
   category: string;
-  breadcrumbTitle: string;
-  seo: Seo;
-  mainImage: any;
-  readingTime: string;
-  sections: AddSection[];
-  sources: string;
-  faqTitle: string;
-  faqsList: Faq[];
+  content: Blog;
 }

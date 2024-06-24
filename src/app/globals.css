@@ -25,6 +25,10 @@
     @apply pt-6
   }
 
+  .content-blog {
+    @apply mx-auto px-10 xl:px-0 max-w-[1200px]
+  }
+
   section {
     @apply pt-2
   }

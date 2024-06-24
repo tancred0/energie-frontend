@@ -2,7 +2,7 @@ import { createClient } from "next-sanity";
 import type { SanityClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import type { BlogPost } from "@/cms/types";
+import type { TopCategory, MainCategory, SubCategory, RatgeberBlog } from "@/cms/types";
 
 export class Sanity {
   client: SanityClient;
@@ -10,10 +10,10 @@ export class Sanity {
 
   constructor() {
     this.client = createClient({
-      projectId: "ykthmjxc",
+      projectId: "kcz3n8m3",
       dataset: "production",
       apiVersion: "2023-10-21",
-      useCdn: true,
+      useCdn: false,
     });
 
     this.builder = imageUrlBuilder(this.client);
@@ -23,28 +23,48 @@ export class Sanity {
     return this.builder.image(source);
   }
 
-  getBlogPost = async (slug: string): Promise<BlogPost> => {
-    const data: BlogPost = await this.client.fetch(
-      `*[_type == 'blog' && slug.current == $slug][0] {
-        public,
-        publishedAt,
-        rating,
-        title,
-        introText,
-        summary,
-        slug,
-        category,
-        breadcrumbTitle,
-        seo,
-        mainImage,
-        readingTime,
-        sections,
-        sources,
-        faqTitle,
-        faqsList,
+  getTopCategory = async (slug: string): Promise<TopCategory> => {
+    const data: TopCategory = await this.client.fetch(
+      `*[_type == 'topCategory' && content.slug.current == $slug][0] {
+        content,
       }`,
       { slug: slug }
     );
     return data;
-  };
+  }
+
+  getMainCategory = async (slug: string): Promise<MainCategory> => {
+    const data: MainCategory = await this.client.fetch(
+      `*[_type == 'mainCategory' && content.slug.current == $slug][0] {
+        content,
+        topCategory,
+      }`,
+      { slug: slug }
+    );
+    return data;
+  }
+
+  getSubCategory = async (slug: string): Promise<SubCategory> => {
+    const data: SubCategory = await this.client.fetch(
+      `*[_type == 'subCategory' && content.slug.current == $slug][0] {
+        content,
+        topCategory,
+        mainCategory,
+      }`,
+      { slug: slug }
+    );
+    return data;
+  }
+
+  getRatgeberBlog = async (slug: string): Promise<RatgeberBlog> => {
+    const data: RatgeberBlog = await this.client.fetch(
+      `*[_type == 'ratgeberBlog' && content.slug.current == $slug][0] {
+        category,
+        content,
+      }`,
+      { slug: slug }
+    );
+    return data;
+  }
+
 }

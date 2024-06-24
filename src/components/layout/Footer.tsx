@@ -13,10 +13,10 @@ const GeneralLinks: { heading: string, links: FooterLinks[] }[] = [
   {
     heading: "Produkte",
     links: [
-      { name: "Wärmepumpe", slug: "/ratgeber/waermepumpe" },
-      { name: "Photovoltaik", slug: "/ratgeber/pv" },
-      { name: "Solarthermie", slug: "/ratgeber/solarthermie" },
-      { name: "Heizungen", slug: "/ratgeber/heizung" },
+      { name: "Wärmepumpe", slug: "/waermepumpe" },
+      { name: "Photovoltaik", slug: "/pv" },
+      { name: "Solarthermie", slug: "/solarthermie" },
+      { name: "Heizungen", slug: "/heizung" },
     ]
   },
   {
@@ -24,8 +24,6 @@ const GeneralLinks: { heading: string, links: FooterLinks[] }[] = [
     links: [
       { name: "Energieberatung", slug: "/energieberatung" },
       { name: "Förderservice", slug: "/foerderung" },
-      { name: "Energieeffizienzanalyse", slug: "/" },
-      { name: "Energieausweis", slug: "/" },
     ]
   },
 ];

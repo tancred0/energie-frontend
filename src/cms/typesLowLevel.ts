@@ -1,8 +1,3 @@
-
-export interface Reference {
-  _ref: string;
-}
-
 export interface Slug {
   _type: string;
   current: string;
@@ -11,6 +6,33 @@ export interface Slug {
 export interface Rating {
   avgRating: number;
   count: number;
+}
+
+export interface Seo {
+  title: string;
+  metaDescription: string;
+  priority?: number
+}
+
+export interface Faq {
+  question: string;
+  answer: BlockContent;
+}
+
+export interface ImageAsset {
+  _ref: string
+  _type: string
+}
+
+export interface ImageWithDetails {
+  altText: string;
+  asset: ImageAsset;
+  link: string;
+}
+
+export interface AssetReference {
+  _ref: string;
+  _type: 'reference';
 }
 
 export interface BlockContent {
@@ -28,38 +50,7 @@ export interface Children {
   text: string;
 }
 
-export interface AssetReference {
-  _ref: string;
-  _type: 'reference';
-}
-
-export interface Seo {
-  title: string;
-  metaDescription: string;
-}
-
-export interface SeowithPrio {
-  title: string;
-  metaDescription: string;
-  priority?: number
-}
-
-export interface AddSection {
+export interface AddSections {
   heading: string;
   text: BlockContent;
-}
-
-export interface Faq {
-  question: string;
-  answer: BlockContent;
-}
-
-export interface MainImage {
-  _type: string
-  asset: ImageAsset
-}
-
-export interface ImageAsset {
-  _ref: string
-  _type: string
 }
