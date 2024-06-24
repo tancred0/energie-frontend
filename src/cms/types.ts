@@ -11,7 +11,7 @@ import type {
 
 
 
-export interface Blog {
+export interface BlogType {
   title: string;
   breadcrumbTitle: string;
   slug: Slug;
@@ -34,21 +34,21 @@ export interface Blog {
 
 
 export interface TopCategory {
-  content: Blog;
+  content: BlogType;
 }
 
 export interface MainCategory {
-  content: Blog;
+  content: BlogType;
   topCategory: AssetReference;
 }
 
 export interface SubCategory {
-  content: Blog;
+  content: BlogType;
   topCategory: AssetReference;
   mainCategory: AssetReference;
 }
 
 export interface RatgeberBlog {
   category: string;
-  content: Blog;
+  content: BlogType;
 }
