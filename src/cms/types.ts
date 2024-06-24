@@ -5,7 +5,7 @@ import type {
   Rating,
   Faq,
   BlockContent,
-  AddSections,
+  AddSection,
   AssetReference,
 } from "./typesLowLevel";
 
@@ -20,13 +20,13 @@ export interface Blog {
   publishedAt: string;
   seo: Seo;
   rating: Rating;
-  readingTime: string;
+  readingTime: number;
 
   introText: string;
   summary: BlockContent;
   mainImage: ImageWithDetails;
 
-  content: AddSections[];
+  content: AddSection[];
   sources: BlockContent;
   faqTitle: string;
   faqsList: Faq[];

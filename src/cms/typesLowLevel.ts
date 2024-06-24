@@ -18,15 +18,18 @@ export interface Faq {
   question: string;
   answer: BlockContent;
 }
-
 export interface ImageAsset {
-  _ref: string
-  _type: string
+  _ref: string;
+  _type: string;
 }
 
 export interface ImageWithDetails {
   altText: string;
-  asset: ImageAsset;
+  image: {
+    _ref: string;
+    _type: string;
+    asset: ImageAsset;
+  };
   link: string;
 }
 
@@ -50,7 +53,7 @@ export interface Children {
   text: string;
 }
 
-export interface AddSections {
+export interface AddSection {
   heading: string;
   text: BlockContent;
 }

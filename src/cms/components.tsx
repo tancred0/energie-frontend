@@ -11,7 +11,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { StaticImageData } from "next/image";
 
-import infoIcon from "@/images/sources/info.svg";
+import infoIcon from "@/images/general/info.svg";
 
 const sanity = new Sanity();
 const imageBuilder = imageUrlBuilder(sanity.client);

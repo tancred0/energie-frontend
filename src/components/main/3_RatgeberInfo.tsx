@@ -1,5 +1,5 @@
 
-import InfoCard from "../general/InfoCard";
+import InfoCard from "../lowLevel/InfoCard";
 
 import electricityImg from "@/images/main/productRange/electricity.png"
 import houseImg from "@/images/main/productRange/house.png";

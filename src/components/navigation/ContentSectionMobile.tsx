@@ -35,11 +35,11 @@ export default function MobileContentSection({
       <Accordion type="single" collapsible>
         <AccordionItem value="item-1">
           <AccordionTrigger>Inhaltsverzeichnis</AccordionTrigger>
-          {renderedSections.map((section, index) => (
+          {/* {renderedSections.map((section, index) => (
             <AccordionContent key={index}>
               {section}
             </AccordionContent>
-          ))}
+          ))} */}
         </AccordionItem>
       </Accordion>
 
