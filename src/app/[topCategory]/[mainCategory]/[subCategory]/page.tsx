@@ -15,12 +15,16 @@ const fetchData = cache((topCategory: string, mainCategory: string, subCategory:
   const [topNeedsRedirect, topFixed] = slugify(topCategory);
   const [mainNeedsRedirect, mainFixed] = slugify(mainCategory);
   const [subNeedsRedirect, subFixed] = slugify(subCategory);
+
   if (topNeedsRedirect || mainNeedsRedirect || subNeedsRedirect) {
     redirect(`/${topFixed}/${mainFixed}/${subFixed}`);
   }
 
   const sanity = new Sanity();
   const data = sanity.getSubCategory(topCategory, mainCategory, subCategory);
+  
+  console.log(data)
+
   if (data === null) {
     redirect(`/${topFixed}/${mainFixed}`);
   }
