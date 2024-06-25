@@ -1,7 +1,10 @@
 import { Sanity } from "@/cms/Sanity";
 import type { Metadata, ResolvingMetadata } from "next";
 import { cache } from "react";
+import { redirect } from "next/navigation";
 import TopCategory from "@/components/blogs/1_TopCategory";
+
+import slugify from "@/lib/slugify";
 
 interface TopCategoryProps {
   params: { topCategory: string };
@@ -10,8 +13,16 @@ interface TopCategoryProps {
 
 
 const fetchData = cache((topCategory: string) => {
+  const [needsRedirect, uri_fixed] = slugify(topCategory);
+  if (needsRedirect) {
+    redirect(`/${uri_fixed}`);
+  }
+  
   const sanity = new Sanity();
   const data = sanity.getTopCategory(topCategory);
+  if (data === null) {
+    redirect(`/`);
+  }
   return data;
 });
 

@@ -2,6 +2,8 @@ import { Sanity } from "@/cms/Sanity";
 import type { Metadata, ResolvingMetadata } from "next";
 import { cache } from "react";
 import MainCategory from "@/components/blogs/2_MainCategory";
+import { redirect } from "next/navigation";
+import slugify from "@/lib/slugify";
 
 interface SubCategoryProps {
   params: { topCategory: string, mainCategory: string, subCategory: string};
@@ -10,8 +12,18 @@ interface SubCategoryProps {
 
 
 const fetchData = cache((topCategory: string, mainCategory: string, subCategory: string) => {
+  const [topNeedsRedirect, topFixed] = slugify(topCategory);
+  const [mainNeedsRedirect, mainFixed] = slugify(mainCategory);
+  const [subNeedsRedirect, subFixed] = slugify(subCategory);
+  if (topNeedsRedirect || mainNeedsRedirect || subNeedsRedirect) {
+    redirect(`/${topFixed}/${mainFixed}/${subFixed}`);
+  }
+
   const sanity = new Sanity();
   const data = sanity.getSubCategory(topCategory, mainCategory, subCategory);
+  if (data === null) {
+    redirect(`/${topFixed}/${mainFixed}`);
+  }
   return data;
 });
 
