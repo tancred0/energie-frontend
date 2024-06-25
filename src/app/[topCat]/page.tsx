@@ -1,32 +1,32 @@
 import { Sanity } from "@/cms/Sanity";
-import { Metadata, ResolvingMetadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import { cache } from "react";
-import TopCategory from "@/components/blogs/TopCategory";
+import TopCategory from "@/components/blogs/1_TopCategory";
 
 interface TopCategoryProps {
-  params: { topCat: string };
+  params: { topCategory: string };
   searchParams: URLSearchParams;
 }
 
 
-const fetchData = cache((categoryName: string) => {
+const fetchData = cache((topCategory: string) => {
   const sanity = new Sanity();
-  const data = sanity.getTopCategory(categoryName);
+  const data = sanity.getTopCategory(topCategory);
   return data;
 });
 
 
 export async function generateMetadata(
   { params, searchParams }: TopCategoryProps,
-  parent: ResolvingMetadata
+  _parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const data = await fetchData(params.topCat);
+  const data = await fetchData(params.topCategory);
 
   const title =
-    data?.content.seo?.title ??
+    data?.blog.seo?.title ??
     `Bodenrichtwerte <Bundesland> ${new Date().getFullYear()}`;
   const description =
-    data?.content.seo?.metaDescription ??
+    data?.blog.seo?.metaDescription ??
     `Der Ratgeber für Bodenrichtwerte in <Bundesland>. Finden Sie alle Informationen zu den neuesten Entwicklungen der Bodenrichtwerten.`;
   return {
     title: title,
@@ -35,8 +35,8 @@ export async function generateMetadata(
 }
 
 export default async function Page({ params }: TopCategoryProps) {
-  const data = await fetchData(params.topCat);
-  return <TopCategory data={data.content} />;
+  const data = await fetchData(params.topCategory);
+  return <TopCategory data={data.blog} />;
 }
 
 

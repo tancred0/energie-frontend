@@ -1,6 +1,6 @@
 import type { Seo, Rating } from "@/cms/typesLowLevel"
 
-export default function getJsonLd({seo, rating}: {seo: Seo, rating: Rating}) {
+export default function getJsonLd({ seo, rating }: { seo: Seo, rating: Rating }) {
   return [
     {
       "@context": "https://schema.org",
@@ -12,6 +12,6 @@ export default function getJsonLd({seo, rating}: {seo: Seo, rating: Rating}) {
         ratingValue: rating.avgRating ?? 4.8,
         reviewCount: rating.count ?? 52,
       },
-    },
+    }
   ];
 }

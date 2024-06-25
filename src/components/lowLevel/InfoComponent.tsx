@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { StaticImageData } from "next/image";
+import type { StaticImageData } from "next/image";
 
 import lastTuesday from "@/lib/lastTuesday";
 import { Rating } from "@/cms/typesLowLevel";

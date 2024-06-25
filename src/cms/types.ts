@@ -6,7 +6,7 @@ import type {
   Faq,
   BlockContent,
   AddSection,
-  AssetReference,
+  CategoryReference
 } from "./typesLowLevel";
 
 
@@ -32,23 +32,22 @@ export interface BlogType {
   faqsList: Faq[];
 }
 
-
 export interface TopCategory {
-  content: BlogType;
+  blog: BlogType;
 }
 
 export interface MainCategory {
-  content: BlogType;
-  topCategory: AssetReference;
+  topCategory: CategoryReference;
+  blog: BlogType;
 }
 
 export interface SubCategory {
-  content: BlogType;
-  topCategory: AssetReference;
-  mainCategory: AssetReference;
+  topCategory: CategoryReference;
+  mainCategory: CategoryReference;
+  blog: BlogType;
 }
 
 export interface RatgeberBlog {
   category: string;
-  content: BlogType;
+  blog: BlogType;
 }

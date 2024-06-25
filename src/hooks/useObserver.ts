@@ -26,7 +26,6 @@ export default function useObserver() {
   const [highlightedSection, setHighlightedSection] = useState("sec1");
 
   function onObserve(entries: IntersectionObserverEntry[]) {
-    console.log(entries)
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const { id } = entry.target;

@@ -23,23 +23,30 @@ export class Sanity {
     return this.builder.image(source);
   }
 
-  getTopCategory = async (slug: string): Promise<TopCategory> => {
+  getTopCategory = async (topCategorySlug: string): Promise<TopCategory> => {
     const data: TopCategory = await this.client.fetch(
-      `*[_type == 'topCategory' && content.slug.current == $slug][0] {
-        content,
+      `*[_type == 'topCategory' && content.slug.current == $topCategorySlug][0] {
+        blog,
       }`,
-      { slug: slug }
+      { topCategorySlug: topCategorySlug }
     );
     return data;
   }
 
-  getMainCategory = async (slug: string): Promise<MainCategory> => {
+  getMainCategory = async (topCategorySlug: string, mainCategorySlug: string): Promise<MainCategory> => {
     const data: MainCategory = await this.client.fetch(
-      `*[_type == 'mainCategory' && content.slug.current == $slug][0] {
-        content,
-        topCategory,
+      `*[_type == 'mainCategory' && blog.slug.current == $mainCategorySlug && topCategory->blog.slug.current == $topCategorySlug][0]{
+        blog,
+        topCategory->{
+          blog {
+            breadcrumbTitle,
+            slug {
+              current
+            }
+          }
+        }
       }`,
-      { slug: slug }
+      { mainCategorySlug: mainCategorySlug, topCategorySlug: topCategorySlug }
     );
     return data;
   }

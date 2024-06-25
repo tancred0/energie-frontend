@@ -4,26 +4,26 @@ import homeLogo from "@/images/breadcrumbs/home.svg";
 import arrowRight from "@/images/breadcrumbs/arrow-right.svg";
 
 
-type BreadCrumbParentsType = {
+export type BreadCrumbParentsType = {
   title: string;
   url: string;
 }
 
 export default function BreadCrumbs({
   pageTitle,
-  prevItems = [],
+  breadCrumbParents=[],
 }: {
   pageTitle: string;
-  prevItems?: BreadCrumbParentsType[];
+  breadCrumbParents?: BreadCrumbParentsType[];
 }) {
   return (
-    <nav className="py-2 border-b-2">
+    <nav className="sticky top-12 md:top-16 py-2 border-b-2 bg-white ">
       <div className="content-blog flex gap-x-1 items-center">
         <Link className="flex gap-x-1 text-sm items-center" href={"/"}>
           <Image src={homeLogo as StaticImageData} alt="Home" width={24} height={24} />
         </Link>
         <Image src={arrowRight as StaticImageData} alt="Arrow Right" width={24} height={24} />
-        {prevItems.map((item, index) => (
+        {breadCrumbParents.map((item, index) => (
           <>
             <Link
               key={index}

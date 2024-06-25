@@ -3,7 +3,6 @@ import impressumImg2 from "@/images/impressum/impressum2.png";
 import Image from "next/image";
 
 import Link from "next/link";
-import Footer from "@/components/layout/Footer";
 
 export default async function Page() {
   const url = process.env.URL

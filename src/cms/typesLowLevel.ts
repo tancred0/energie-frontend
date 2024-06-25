@@ -1,3 +1,9 @@
+export interface CategoryReference {
+  blog: {
+    breadcrumbTitle: string;
+    slug: Slug;
+  };
+}
 export interface Slug {
   _type: string;
   current: string;
