@@ -15,7 +15,7 @@ export default async function Page() {
 
   return (
     <>
-      <meta name="robots" content="noindex"></meta>
+      <meta name="robots" content="noindex" />
       <main className="max-w-[1200px] mx-auto px-10 xl:px-0 mt-20 mb-32">
         <h1>Impressum</h1>
         <p className="mt-6">

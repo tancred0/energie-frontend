@@ -6,7 +6,7 @@ export default async function Page() {
   const data = await sanity.getLegalNotice("datenschutz");
   return (
     <>
-      <meta name="robots" content="noindex"> </meta>
+      <meta name="robots" content="noindex" />
       <div className="content-blog mt-10">
         <h1>Datenschutz</h1>
         <BlogContent sections={data.blog.content} />
