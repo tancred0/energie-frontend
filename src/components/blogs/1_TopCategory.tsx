@@ -21,7 +21,7 @@ export default function TopCategory({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <BreadCrumbs pageTitle={data.breadcrumbTitle} breadCrumbParents={breadCrumbParents} withProgressBar={false}/>
+      <BreadCrumbs pageTitle={data.breadcrumbTitle} breadCrumbParents={breadCrumbParents}/>
       <ProgressBar />
       <Blog data={data} />
     </>

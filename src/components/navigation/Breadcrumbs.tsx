@@ -12,14 +12,12 @@ export type BreadCrumbParentsType = {
 export default function BreadCrumbs({
   pageTitle,
   breadCrumbParents = [],
-  withProgressBar = true,
 }: {
   pageTitle: string;
   breadCrumbParents?: BreadCrumbParentsType[];
-  withProgressBar?: boolean;
 }) {
   return (
-    <nav className={`sticky z-10 py-2 border-b-2 bg-white ${withProgressBar ? "top-[48px] md:top-[63px]" : "top-[49px] md:top-[62px]"}`}>  
+    <nav className={`sticky z-10 py-2 border-b-2 bg-white top-[48px] md:top-[61px]`}>  
       <div className="content-blog flex gap-x-1 items-center">
         <Link className="flex gap-x-1 text-sm items-center" href={"/"}>
           <Image src={homeLogo as StaticImageData} alt="Home" width={24} height={24} />

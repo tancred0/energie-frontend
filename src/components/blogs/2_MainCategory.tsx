@@ -5,6 +5,7 @@ import Blog from "./Blog";
 import getJsonLd from "@/lib/getJsonLd";
 
 import type { BreadCrumbParentsType } from "../navigation/Breadcrumbs";
+import ProgressBar from "../layout/ProgressBar";
 
 export default function MainCategory({ 
   data, 
@@ -21,6 +22,7 @@ export default function MainCategory({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <BreadCrumbs pageTitle={data.breadcrumbTitle} breadCrumbParents={breadCrumbParents}/>
+      <ProgressBar />
       <Blog data={data} />
     </>
   );
