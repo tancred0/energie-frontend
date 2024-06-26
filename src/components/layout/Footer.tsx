@@ -13,10 +13,10 @@ const GeneralLinks: { heading: string, links: FooterLinks[] }[] = [
   {
     heading: "Produkte",
     links: [
-      { name: "Wärmepumpe", slug: "/waermepumpe" },
-      { name: "Photovoltaik", slug: "/pv" },
-      { name: "Solarthermie", slug: "/solarthermie" },
       { name: "Heizungen", slug: "/heizung" },
+      { name: "Wärmepumpen", slug: "/heizung/waermepumpe" },
+      // { name: "Solaranlagen", slug: "/solaranlage" },
+      // { name: "Photovoltaikanlagen", slug: "/solaranlage/photovoltaikanlage" },
     ]
   },
   {

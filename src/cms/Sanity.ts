@@ -25,7 +25,7 @@ export class Sanity {
 
   getTopCategory = async (topCategorySlug: string): Promise<TopCategory> => {
     const data: TopCategory = await this.client.fetch(
-      `*[_type == 'topCategory' && content.slug.current == $topCategorySlug][0] {
+      `*[_type == 'topCategory' && blog.slug.current == $topCategorySlug][0] {
         blog,
       }`,
       { topCategorySlug: topCategorySlug }
@@ -82,6 +82,17 @@ export class Sanity {
       `*[_type == 'ratgeberBlog' && content.slug.current == $slug][0] {
         category,
         content,
+      }`,
+      { slug: slug }
+    );
+    return data;
+  }
+
+  getLegalNotice = async (slug: string): Promise<RatgeberBlog> => {
+    const data: RatgeberBlog = await this.client.fetch(
+      `*[_type == 'legal' && blog.slug.current == $slug][0]{
+        blog,
+        category,
       }`,
       { slug: slug }
     );

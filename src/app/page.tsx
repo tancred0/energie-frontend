@@ -43,7 +43,7 @@ export default async function Home() {
       <ProductRange />
       <Partners />
       <Newsletters />
-      <RatgeberInfo />
+      {/* <RatgeberInfo /> */}
     </>
   );
 }

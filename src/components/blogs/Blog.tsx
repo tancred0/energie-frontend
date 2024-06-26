@@ -29,7 +29,7 @@ export default function Blog({ data }: { data: BlogType }) {
             introText={data.introText}
           />
           <InfoComponent readingTime={data.readingTime} />
-          <MainImage img={data.mainImage} />
+          {data.mainImage && <MainImage img={data.mainImage} />}
           <Summary summary={data.summary} />
           <BlogContent sections={data.content} />
           {data.sources && <Sources sources={data.sources} />}

@@ -18,22 +18,22 @@ const productRange = [
     href: "/foerderung",
   },
   {
-    title: "Ratgeber",
+    title: "Heizung",
     image: roofImg,
-    href: "/ratgeber",
+    href: "/heizung",
   },
   {
-    title: "Anbietersuche",
+    title: "Wärmepumpe",
     image: solarImg,
-    href: "/anbieter",
+    href: "/heizung/waermepumpe",
   },
 ];
 
 export default function ProductRange() {
   return (
     <section className="max-w-[1200px] mx-auto mt-16 px-10">
-      <h2 className="text-center">Unser Angebot für Sie</h2>
-      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-10  w-full">
+      <h2 className="text-center mb-10 ">Unser Angebot für Sie</h2>
+      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-10">
         {productRange.map((product) => (
           <Link key={product.title} href={product.href} className="flex flex-col items-center gap-5">
             <Image

@@ -22,8 +22,6 @@ const fetchData = cache((topCategory: string, mainCategory: string, subCategory:
 
   const sanity = new Sanity();
   const data = sanity.getSubCategory(topCategory, mainCategory, subCategory);
-  
-  console.log(data)
 
   if (data === null) {
     redirect(`/${topFixed}/${mainFixed}`);

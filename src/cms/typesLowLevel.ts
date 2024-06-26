@@ -39,6 +39,7 @@ export interface ImageWithDetails {
     asset: ImageAsset;
   };
   link: string;
+  description: BlockContent;
 }
 
 export interface AssetReference {
