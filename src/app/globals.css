@@ -174,7 +174,7 @@
   }
 
   #summary ul {
-    @apply mt-6  ml-3 md:ml-6 lg:ml-6 text-sm md:text-lg
+    @apply mt-6 ml-3 md:ml-6 lg:ml-6 text-sm md:text-lg
   }
   
 }

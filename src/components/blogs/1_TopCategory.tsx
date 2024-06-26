@@ -1,5 +1,6 @@
 import type { BlogType } from "@/cms/types";
 
+import ProgressBar from "../layout/ProgressBar";
 import BreadCrumbs from "../navigation/Breadcrumbs";
 import Blog from "./Blog";
 import getJsonLd from "@/lib/getJsonLd";
@@ -20,7 +21,8 @@ export default function TopCategory({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <BreadCrumbs pageTitle={data.breadcrumbTitle} breadCrumbParents={breadCrumbParents}/>
+      <BreadCrumbs pageTitle={data.breadcrumbTitle} breadCrumbParents={breadCrumbParents} withProgressBar={false}/>
+      <ProgressBar />
       <Blog data={data} />
     </>
   );

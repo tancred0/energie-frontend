@@ -31,7 +31,7 @@ export default function MobileContentSection({
 
 
   return (
-    <nav className="md:hidden mx-2">
+    <nav className="md:hidden mt-14 mx-2">
       <Accordion type="single" collapsible>
         <AccordionItem value="item-1">
           <AccordionTrigger>Inhaltsverzeichnis</AccordionTrigger>

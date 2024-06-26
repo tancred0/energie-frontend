@@ -183,12 +183,12 @@ const summary = ({ children }: ChildrenProps) => {
 };
 
 const summaryBulletlist = ({ children }: ChildrenProps) => (
-  <li className="">{children}</li>
+  <li>{children}</li>
 );
 
 const summaryBulletListItem = ({ children }: ChildrenProps) => (
   <li
-    className=" mb-2 list-inside list-disc text-blue-90 "
+    className="mb-2 list-inside list-disc"
     style={{ marginLeft: '12px' }}
   >{children}</li>
 );

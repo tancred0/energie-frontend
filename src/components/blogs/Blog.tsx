@@ -32,7 +32,7 @@ export default function Blog({ data }: { data: BlogType }) {
           {data.mainImage && (
             <>
               <img
-                className="mt-6 mx-auto m-1 px-2 rounded-2xl w-full max-h-[60vh]  object-cover"
+                className="mt-6 mx-auto m-1 px-2 rounded-2xl w-full max-h-[60vh] object-cover"
                 src={imageUrl(data.mainImage.image.asset._ref)}
                 loading="lazy"
                 alt={data.mainImage.altText}

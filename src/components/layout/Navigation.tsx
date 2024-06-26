@@ -9,7 +9,7 @@ const phoneNumber = "0800 123 456 789";
 
 export default function Navigation() {
   return (
-    <header className="sticky top-0 z-50 border-b-2 bg-white">
+    <header className="sticky top-0 z-5 border-b-2 bg-white">
       <div className="px-10 py-2">
         <div className="max-w-[1200px] mx-auto">
           <nav className="flex w-full">
