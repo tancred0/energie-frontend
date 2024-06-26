@@ -7,7 +7,11 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: "*",
             allow: "/",
         },
+        {
+            userAgent: "*",
+            disallow: ["/datenschutz", "/impressum"],
+        },
     ],
-    sitemap: "https://www.bodenrichtwerte-deutschland.de/sitemap.xml",
+    sitemap: `${process.env.URL}/sitemap.xml`,
   };
 }
