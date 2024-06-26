@@ -72,7 +72,7 @@ export class Sanity {
           }
         }
       }`,
-      { mainCategorySlug: mainCategorySlug, topCategorySlug: topCategorySlug, subCategorySlug: subCategorySlug}
+      { mainCategorySlug: mainCategorySlug, topCategorySlug: topCategorySlug, subCategorySlug: subCategorySlug }
     );
     return data;
   }
@@ -99,4 +99,61 @@ export class Sanity {
     return data;
   }
 
+
+  getSitemapTopCategory = async (): Promise<TopCategory[]> => {
+    const data: TopCategory[] = await this.client.fetch(
+      `*[_type == "topCategory" && blog.public == true] {
+        _updatedAt,
+        blog {
+          seo,
+          slug
+        }
+      }
+      `
+    );
+    return data;
+  }
+
+  getSitemapMainCategory = async (): Promise<MainCategory[]> => {
+    const data: MainCategory[] = await this.client.fetch(
+      `*[_type == "mainCategory" && blog.public == true] {
+        _updatedAt,
+        blog {
+          seo,
+          slug
+        },
+        topCategory->{
+          blog {
+            slug
+          }
+        }
+      }
+      `
+    );
+    return data;
+  }
+
+  getSitemapSubCategory = async (): Promise<SubCategory[]> => {
+    const data: SubCategory[] = await this.client.fetch(
+      `*[_type == "subCategory" && blog.public == true] {
+        _updatedAt,
+        blog {
+          seo,
+          slug
+        },
+        mainCategory->{
+          blog {
+            slug
+          },
+          topCategory->{
+            blog {
+              slug
+            }
+          }
+        }
+      }
+      `
+    );
+    return data;
+  }
 }

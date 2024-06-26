@@ -35,11 +35,13 @@ export interface BlogType {
 
 export interface TopCategory {
   blog: BlogType;
+  _updatedAt: string;
 }
 
 export interface MainCategory {
   topCategory: CategoryReference;
   blog: BlogType;
+  _updatedAt: string;
 }
 
 export interface mainCategoryReference {
@@ -50,9 +52,11 @@ export interface mainCategoryReference {
 export interface SubCategory {
   mainCategory: mainCategoryReference;
   blog: BlogType;
+  _updatedAt: string;
 }
 
 export interface RatgeberBlog {
   category: string;
   blog: BlogType;
+  _updatedAt: string;
 }
