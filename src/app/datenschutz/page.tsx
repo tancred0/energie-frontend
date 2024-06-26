@@ -5,10 +5,13 @@ export default async function Page() {
   const sanity = new Sanity();
   const data = await sanity.getLegalNotice("datenschutz");
   return (
-    <div className="content-blog mt-10">
-      <h1>Datenschutz</h1>
-      <BlogContent sections={data.blog.content} />
-    </div>
+    <>
+      <meta name="robots" content="noindex"> </meta>
+      <div className="content-blog mt-10">
+        <h1>Datenschutz</h1>
+        <BlogContent sections={data.blog.content} />
+      </div>
+    </>
   );
 }
 
