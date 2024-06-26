@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 // import { GoogleTagManager } from "@next/third-parties/google";
 
@@ -9,11 +8,6 @@ import Footer from "@/components/layout/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Bodenrichtwerte Deutschland",
-  description:
-    "Der Ratgeber in Bezug auf Bodenrichtwerte und Grundstückspreise. Informieren Sie sich nach Bodenrichtwerten in Ihrer Stadt und Straße.",
-};
 
 export default function RootLayout({
   children,
