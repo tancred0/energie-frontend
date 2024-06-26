@@ -8,8 +8,11 @@ import clockIcon from "@/images/textinfo/clock.svg";
 import calendarIcon from "@/images/textinfo/calendar.svg";
 import starIcon from "@/images/textinfo/star.svg";
 
-export default function InfoComponent({
-  readingTime, 
+import clockIconGray from "@/images/textinfo/clock-gray.svg";
+import calendarIconGray from "@/images/textinfo/calendar-gray.svg";
+
+export function OldInfoComponent({
+  readingTime,
   rating,
 }: {
   readingTime: number;
@@ -59,6 +62,49 @@ export default function InfoComponent({
           ({rating == null ? 47 : rating.count})
         </div>
       </div>
+    </div>
+  );
+}
+
+export default function InfoComponent({
+  readingTime,
+  author,
+}: {
+  readingTime: number;
+  author?: string;
+}) {
+
+  const lastTuesdayFormatted = lastTuesday();
+
+  return (
+    <div className="my-4 flex gap-x-1 sm:gap-x-4 text-blue-40/50">
+      <div className="flex gap-x-1">
+        <Image
+          src={clockIconGray as StaticImageData}
+          height={24}
+          width={24}
+          alt="Clock"
+        />
+        <div>
+          {readingTime} min. Lesezeit
+        </div>
+      </div>
+      <div> - </div>
+      <div className="flex gap-x-1">
+        <Image
+          src={calendarIconGray as StaticImageData}
+          height={24}
+          width={24}
+          alt="Calendar"
+        />
+        <div>{lastTuesdayFormatted}</div>
+      </div>
+      {author ? (
+        <>
+          <div>-</div>
+          <div>Author: ${author}</div>
+        </>
+      ) : null}
     </div>
   );
 }

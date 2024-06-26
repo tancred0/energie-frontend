@@ -52,8 +52,9 @@ export async function generateMetadata(
 
 export default async function Page({ params }: SubCategoryProps) {
   const data = await fetchData(params.topCategory, params.mainCategory, params.subCategory);
-  const topCategoryInfo = data.topCategory.blog
+  const topCategoryInfo = data.mainCategory.topCategory.blog
   const mainCategoryInfo = data.mainCategory.blog
+
   const breadCrumbParents = [
     {
       title: topCategoryInfo.breadcrumbTitle,

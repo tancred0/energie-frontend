@@ -6,6 +6,7 @@ import type {
   Faq,
   BlockContent,
   AddSection,
+  BlogReference,
   CategoryReference
 } from "./typesLowLevel";
 
@@ -41,9 +42,13 @@ export interface MainCategory {
   blog: BlogType;
 }
 
-export interface SubCategory {
+export interface mainCategoryReference {
   topCategory: CategoryReference;
-  mainCategory: CategoryReference;
+  blog: BlogReference;
+}
+
+export interface SubCategory {
+  mainCategory: mainCategoryReference;
   blog: BlogType;
 }
 

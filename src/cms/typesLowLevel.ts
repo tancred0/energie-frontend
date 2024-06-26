@@ -1,8 +1,10 @@
+export interface BlogReference {
+  breadcrumbTitle: string;
+  slug: Slug;
+}
+
 export interface CategoryReference {
-  blog: {
-    breadcrumbTitle: string;
-    slug: Slug;
-  };
+  blog: BlogReference;
 }
 export interface Slug {
   _type: string;

@@ -53,17 +53,17 @@ export class Sanity {
 
   getSubCategory = async (topCategorySlug: string, mainCategorySlug: string, subCategorySlug: string): Promise<SubCategory> => {
     const data: SubCategory = await this.client.fetch(
-      `*[_type == 'subCategory' && blog.slug.current == $subCategorySlug && mainCategory->blog.slug.current == $mainCategorySlug && topCategory->blog.slug.current == $topCategorySlug][0]{
+      `*[_type == 'subCategory' && blog.slug.current == $subCategorySlug && mainCategory->blog.slug.current == $mainCategorySlug && mainCategory->topCategory->blog.slug.current == $topCategorySlug][0]{
         blog,
-        topCategory->{
-          blog {
-            breadcrumbTitle,
-            slug {
-              current
-            }
-          }
-        },
         mainCategory->{
+          topCategory->{
+            blog {
+              breadcrumbTitle,
+              slug {
+                current
+              }
+            }
+          },
           blog {
             breadcrumbTitle,
             slug {
