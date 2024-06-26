@@ -40,55 +40,42 @@ const Strong = ({ children }: ChildrenProps) => {
 };
 
 const BulletListItem = ({ children }: ChildrenProps) => (
-  <li className="ml-8 pb-2 list-outside list-disc text-xl text-gray-600">{children}</li>
+  <li>{children}</li>
 );
 
 // Custom component for numbered list items
 const NumberedListItem = ({ children }: ChildrenProps) => (
-  <li
-    className="list-decimal list-outside ml-8 mb-2 text-xl text-gray-600"
-    style={{ listStyleType: "decimal" }}
-  >
-    {children}
-  </li>
+  <li style={{ listStyleType: "decimal" }}>{children}</li>
 );
 
 const InsideQuote = ({ children }: ChildrenProps) => (
-  <div className="border-l-4 pl-4 my-4 py-3 border-blue-90 text-gray-600  text-xl">
+  <div className="border-l-4 pl-4 my-4 py-3 border-blue-90  text-xl">
     {children}
   </div>
 );
 
 const BlockQuote = ({ children }: ChildrenProps) => (
-  <div className="p-4 bg-blue-10 border-l-4 border-blue-90 text-gray-600 my-4 text-xl">
+  <div className="p-4 bg-blue-10 border-l-4 border-blue-90 my-4 text-xl">
     {children}
   </div>
 );
-// // Custom component for numbered lists
-// const NumberedList = ({ children }: ChildrenProps) => (
-//   <ol className="ml-8 list-decimal list-inside pb-4  ">{children}</ol>
-// );
-
-// // Custom component for bullet lists
-// const BulletList = ({ children }: ChildrenProps) => (
-//   <ul className="ml-8 list-outside list-disc pb-4">{children}</ul>
-// );
 
 const InfoBox: React.FC<PortableTextTypeComponentProps<any>> = ({ value }: any) => {
   return (
-    <div className="m-1 mb-6 rounded-2xl bg-blue-10 py-4 px-8">
-      <div className="flex gap-x-2 mb-4 mt-2 w-full border-b pb-4 border-blue-90">
+    <div className="md:m-1 mb-6 rounded-2xl bg-blue-10 py-4 px-8">
+      <div className="flex gap-x-2 my-2 w-full border-b border-blue-40/50 items-center">
         <Image src={infoIcon as StaticImageData} alt="summary" width={24} height={24} />
-        <h3 className="text-blue-90 m-0">{value.heading}</h3>
+        <div className="h4">{value.heading}</div>
       </div>
-      <PortableTextRenderer input={value.text} />
+      <div className="pt-4">
+        <PortableTextRenderer input={value.text} />
+      </div>
     </div>
   )
 }
 
 
 const ImageComponent: React.FC<PortableTextTypeComponentProps<any>> = ({ value }: any) => {
-
   return (
     <img
       src={imageUrl(value)}
@@ -103,23 +90,18 @@ const ImageComponent: React.FC<PortableTextTypeComponentProps<any>> = ({ value }
 
 const ImageComponentWithDetails: React.FC<PortableTextTypeComponentProps<any>> = ({ value }: any) => {
   return (
-    <>
+    <div className="w-full">
       <img
         src={imageUrl(value.image)}
-        className="mt-4 mb-4 mx-auto rounded-2xl"
+        className="my-4 rounded-2xl"
         // width={0}
         // height={0}
         //  produces error if inside infobox http://localhost:3000/immobilienwissen/grundstueck-verkaufen
         loading="lazy"
         alt={value.altText}
       />
-      <div className="text-lg mb-4 truncate">
-        Quelle:{" "}
-        <Link className="text-lg truncate" target="_blank" href={value.link}>
-          {value.link}
-        </Link>
-      </div>
-    </>
+      <PortableBlogRenderer input={value.description} />
+    </div>
   )
 }
 
@@ -133,8 +115,6 @@ export const sanityPortableTextComponents: Partial<PortableTextReactComponents> 
     strong: Strong,
     blockquote: BlockQuote,
     insidequote: InsideQuote,
-    // bullet: BulletList,
-    // number: NumberedList,
   },
   listItem: {
     bullet: BulletListItem,
@@ -182,22 +162,14 @@ const summary = ({ children }: ChildrenProps) => {
   );
 };
 
-const summaryBulletlist = ({ children }: ChildrenProps) => (
-  <li>{children}</li>
-);
-
 const summaryBulletListItem = ({ children }: ChildrenProps) => (
-  <li
-    className="mb-2 list-inside list-disc"
-    style={{ marginLeft: '12px' }}
-  >{children}</li>
+  <li>{children}</li>
 );
 
 const summaryTextComponents: Partial<PortableTextReactComponents> =
 {
   block: {
     normal: summary,
-    bullet: summaryBulletlist,
   },
   listItem: {
     bullet: summaryBulletListItem,

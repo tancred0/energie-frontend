@@ -9,6 +9,10 @@
 }
 
 @layer utilities {
+  * {
+    @apply text-gray-600;
+  }
+
   p {
     @apply text-xl text-gray-600 mb-4;
   }
@@ -60,6 +64,10 @@
 
   ul {
     @apply mb-2
+  }
+
+  li {
+    @apply ml-8 pb-2 list-outside list-disc text-xl
   }
 
   .table-container {
@@ -174,7 +182,12 @@
   }
 
   #summary ul {
-    @apply mt-6 ml-3 md:ml-6 lg:ml-6 text-sm md:text-lg
+    @apply mt-6 ml-3 md:ml-6 lg:ml-6 text-sm md:text-lg 
   }
+
+  #summary li {
+    @apply mb-2 list-inside list-disc ml-4
+  }
+
   
 }

@@ -26,7 +26,7 @@ export default function Faqs({
       </h2>
       {faqs.map((faq, index) => (
         <Accordion key={index} type="single" collapsible>
-          <AccordionItemFaq value="item-1" className={`border-gray-600 ${index === faqs.length - 1 ? 'border-0' : ''}`}>
+          <AccordionItemFaq value="item-1" className={`border-blue-40/50 ${index === faqs.length - 1 ? 'border-0' : ''}`}>
             <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
             <AccordionContent>
               <PortableTextRenderer input={faq.answer} />

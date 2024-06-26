@@ -3,7 +3,7 @@ import type { ImageWithDetails } from "@/cms/typesLowLevel";
 
 export default function MainImage({ img }: { img: ImageWithDetails }) {
   return (
-    <>
+    <div className="my-6">
       <img
         className="mt-6 mx-auto m-1 rounded-2xl w-full max-h-[60vh] object-cover"
         src={imageUrl(img.image.asset._ref)}
@@ -12,6 +12,6 @@ export default function MainImage({ img }: { img: ImageWithDetails }) {
         alt={img.altText}
       />
       <PortableBlogRenderer input={img.description} />
-    </>
+    </div>
   )
 };

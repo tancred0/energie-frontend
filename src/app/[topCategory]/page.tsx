@@ -47,6 +47,7 @@ export async function generateMetadata(
 
 export default async function Page({ params }: TopCategoryProps) {
   const data = await fetchData(params.topCategory);
+  console.log(data.blog.content[1]);
   return <TopCategory data={data.blog} />;
 }
 
