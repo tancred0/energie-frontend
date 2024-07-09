@@ -21,17 +21,18 @@ export function generateMetadata(): Metadata {
 }
 
 export default async function Home() {
-  const jsonLd = [
+const jsonLd = [
     {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: rating.value,
-        reviewCount: rating.count,
-      },
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Deutsche Gesellschaft für Energieberatung",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": rating.value,
+            "reviewCount": rating.count
+        }
     }
-  ]
+];
 
   return (
     <>
