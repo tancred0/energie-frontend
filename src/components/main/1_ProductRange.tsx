@@ -13,19 +13,19 @@ const productRange = [
     href: "/energieberatung",
   },
   {
-    title: "Förderservice",
-    image: houseImg,
-    href: "/foerderung",
-  },
-  {
     title: "Heizung",
-    image: roofImg,
+    image: houseImg,
     href: "/heizung",
   },
   {
     title: "Wärmepumpe",
-    image: solarImg,
+    image: roofImg,
     href: "/heizung/waermepumpe",
+  },
+  {
+    title: "Solaranlage",
+    image: solarImg,
+    href: "/solaranlage",
   },
 ];
 

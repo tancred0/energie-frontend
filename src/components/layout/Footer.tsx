@@ -15,15 +15,15 @@ const GeneralLinks: { heading: string, links: FooterLinks[] }[] = [
     links: [
       { name: "Heizungen", slug: "/heizung" },
       { name: "Wärmepumpen", slug: "/heizung/waermepumpe" },
-      // { name: "Solaranlagen", slug: "/solaranlage" },
-      // { name: "Photovoltaikanlagen", slug: "/solaranlage/photovoltaikanlage" },
+      { name: "Solaranlagen", slug: "/solaranlage" },
+      { name: "Photovoltaik", slug: "/solaranlage/photovoltaik" },
     ]
   },
   {
     heading: "Dienstleistungen",
     links: [
       { name: "Energieberatung", slug: "/energieberatung" },
-      { name: "Förderservice", slug: "/foerderung" },
+    //   { name: "Förderservice", slug: "/foerderung" },
     ]
   },
 ];
