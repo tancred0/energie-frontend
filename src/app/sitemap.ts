@@ -12,7 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       return {
           url: `${URL}/${page.blog.slug.current}`,
           lastModified: page._updatedAt,
-          priority: page.blog.seo?.priority ?? 0.7,
+          priority: page.blog.seo?.priority ?? 1,
       };
     });
 
@@ -21,7 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       return {
           url: `${URL}/${page.topCategory.blog.slug.current}/${page.blog.slug.current}`,
           lastModified: page._updatedAt,
-          priority: page.blog.seo?.priority ?? 0.5,
+          priority: page.blog.seo?.priority ?? 1,
       };
     });
 
@@ -30,7 +30,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       return {
           url: `${URL}/${page.mainCategory.topCategory.blog.slug.current}/${page.mainCategory.blog.slug.current}/${page.blog.slug.current}`,
           lastModified: page._updatedAt,
-          priority: page.blog.seo?.priority ?? 0.3,
+          priority: page.blog.seo?.priority ?? 1,
       };
     });
 
