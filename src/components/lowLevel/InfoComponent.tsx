@@ -86,7 +86,7 @@ export default function InfoComponent({
           alt="Clock"
         />
         <div>
-          {readingTime} min. Lesezeit
+          {readingTime ?? 4} min. Lesezeit
         </div>
       </div>
       <div> - </div>

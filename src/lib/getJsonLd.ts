@@ -9,8 +9,8 @@ export default function getJsonLd({ seo, rating }: { seo: Seo, rating: Rating })
       description: seo.metaDescription ?? "Besten Heizungen im Vergleich",
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: rating.avgRating ?? 4.8,
-        reviewCount: rating.count ?? 52,
+        ratingValue: rating?.avgRating ?? 4.8,
+        reviewCount: rating?.count ?? 52,
       },
     }
   ];
