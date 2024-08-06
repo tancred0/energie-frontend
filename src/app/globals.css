@@ -106,10 +106,6 @@
   }
   
   .button {
-    @apply bg-blue-20/95 text-white text-lg py-2 px-4 rounded-lg text-center no-underline
-  }
-
-  .button-blue {
     @apply bg-blue-20 text-white text-lg py-2 px-4 rounded-lg text-center no-underline
   }
 

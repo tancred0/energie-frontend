@@ -1,5 +1,7 @@
 import denaImg from "@/images/main/partners/dena.png";
 import eeExpertenImg from "@/images/main/partners/eeExperten.png";
+import denImg from "@/images/main/partners/den.png";
+import gihImg from "@/images/main/partners/gih.png";
 
 const partnersImg = [
   {
@@ -10,14 +12,14 @@ const partnersImg = [
     image: eeExpertenImg,
     alt: "Energieeffizienz-Experten Logo",
   },
-  // {
-  //   image: enterImg,
-  //   alt: "Enter",
-  // },
-  // {
-  //   image: fourTwoImg,
-  //   alt: "42Watt",
-  // },
+  {
+    image: denImg,
+    alt: "Deutsches Energieberater-Netzwerk Logo",
+  },
+  {
+    image: gihImg,
+    alt: "Energieberatendenverband GIH Logo",
+  },
 
 ];
 

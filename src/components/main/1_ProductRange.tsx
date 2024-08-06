@@ -53,8 +53,8 @@ export default async function ProductRange() {
               src={imageUrl(product.mainImage.asset._ref)}
               alt={product.breadcrumbTitle}
               width={200}
-              height={200}
-              className="object-cover w-full h-full rounded-lg"
+              height={300}
+              className="w-full aspect-square object-cover rounded-lg"
             />
             <div className="button w-full">{product.breadcrumbTitle}</div>
           </Link>

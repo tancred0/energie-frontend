@@ -31,7 +31,7 @@ export default function NewsletterForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <button className="button-blue w-full sm:w-1/3  mx-auto" type="submit" onClick={ handleSubmit}>Jetzt anmelden</button>
+      <button className="button w-full sm:w-1/3  mx-auto" type="submit" onClick={ handleSubmit}>Jetzt anmelden</button>
     </form>
   )
 }
