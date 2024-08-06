@@ -1,7 +1,5 @@
 import denaImg from "@/images/main/partners/dena.png";
 import eeExpertenImg from "@/images/main/partners/eeExperten.png";
-import enterImg from "@/images/main/partners/enter.png";
-import fourTwoImg from "@/images/main/partners/42watt.png";
 
 const partnersImg = [
   {
@@ -12,14 +10,14 @@ const partnersImg = [
     image: eeExpertenImg,
     alt: "Energieeffizienz-Experten Logo",
   },
-  {
-    image: enterImg,
-    alt: "Enter",
-  },
-  {
-    image: fourTwoImg,
-    alt: "42Watt",
-  },
+  // {
+  //   image: enterImg,
+  //   alt: "Enter",
+  // },
+  // {
+  //   image: fourTwoImg,
+  //   alt: "42Watt",
+  // },
 
 ];
 

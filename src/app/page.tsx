@@ -4,10 +4,10 @@ import Hero from "@/components/main/0_Hero";
 import ProductRange from "@/components/main/1_ProductRange";
 import Partners from "@/components/main/2_Partners";
 import RatgeberInfo from "@/components/main/3_RatgeberInfo";
-import Newsletters from "@/components/main/4_Newsletters";
+import Newsletter from "@/components/main/4_Newsletter";
 
-const title = "Deutsche Gesellschaft für Energieberatung";
-const description = "Deutsche Gesellschaft für Energieberatung ➤ Strom & Energie sparen ✓ Sanieren & Bauen ✓ Individuelle Beratung ✓ Unabhängig ✓ Jetzt informieren!";
+const title = "Energieberatungsportal - Deutschlands Energie-Ratgeber";
+const description = "Das Energieberatungsportal ➤ Strom & Energie sparen ✓ Sanieren & Bauen ✓ Individuelle Beratung ✓ Unabhängig ✓ Jetzt informieren!";
 const rating: { value: number, count: number } = {
   value: 4.8,
   count: 52,
@@ -43,7 +43,7 @@ const jsonLd = [
       <Hero />
       <ProductRange />
       <Partners />
-      <Newsletters />
+      <Newsletter />
       {/* <RatgeberInfo /> */}
     </>
   );

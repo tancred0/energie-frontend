@@ -5,7 +5,7 @@ import Link from "next/link";
 import phoneLogo from "@/images/general/phone.svg";
 import smallLogo from "@/images/general/logo_small.svg";
 
-const phoneNumber = "0800 123 456 789";
+const phoneNumber = undefined // "0800 123 456 789";
 
 export default function Navigation() {
   return (
@@ -18,12 +18,12 @@ export default function Navigation() {
                 <Image
                   className="mr-10 "
                   src={smallLogo as StaticImageData}
-                  alt="Logo Gesellschaft für Energieberatung"
+                  alt="Logo Energieberatungsportal"
                 />
               </Link>
             </div>
             <div className="hidden md:display md:flex gap-x-4 flex-row ml-auto my-auto">
-              <p className="my-auto text-base font-light">Kostenlos und unverbindlich</p>
+              <p className="my-auto text-base font-light py-2.5 px-5 rounded-full bg-gray-200">Kostenlos und unverbindlich</p>
               {phoneNumber && (
                 <Link href={`tel:${phoneNumber}`} className="flex flex-row my-auto gap-x-1 py-2.5 px-5 rounded-full bg-gray-200 no-underline hover:font-medium  ">
                   <Image

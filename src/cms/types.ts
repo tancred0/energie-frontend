@@ -7,7 +7,8 @@ import type {
   BlockContent,
   AddSection,
   BlogReference,
-  CategoryReference
+  CategoryReference,
+  ImageAsset,
 } from "./typesLowLevel";
 
 
@@ -32,6 +33,17 @@ export interface BlogType {
   faqTitle: string;
   faqsList: Faq[];
 }
+
+export interface MainPageProps {
+  breadcrumbTitle: string;
+  mainImage: {
+    _ref: string;
+    _type: string;
+    asset: ImageAsset;
+  };
+  slug: string;
+  higherSlug: string;
+};
 
 export interface TopCategory {
   blog: BlogType;

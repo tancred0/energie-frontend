@@ -2,7 +2,13 @@ import { createClient } from "next-sanity";
 import type { SanityClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import type { TopCategory, MainCategory, SubCategory, RatgeberBlog } from "@/cms/types";
+import type {
+  TopCategory,
+  MainCategory,
+  SubCategory,
+  RatgeberBlog,
+  MainPageProps,
+} from "@/cms/types";
 
 export class Sanity {
   client: SanityClient;
@@ -23,17 +29,45 @@ export class Sanity {
     return this.builder.image(source);
   }
 
+  getMainPage = async (): Promise<MainPageProps[]> => {
+    const topics: string[] = [
+      "Solaranlage",
+      "Energieberatung",
+      "Heizung",
+      "Wärmepumpe",
+    ];
+    const data: MainPageProps[] = await this.client.fetch(
+      `*[_type in ["topCategory", "mainCategory"] && blog.breadcrumbTitle in $topics] {
+        "breadcrumbTitle": blog.breadcrumbTitle,
+        "mainImage": blog.mainImage.image,
+        "slug": blog.slug.current,
+        "higherSlug": topCategory->blog.slug.current
+      }`,
+      { topics },
+    );
+
+    // Order the results to match the order in topics
+    return topics
+      .map(
+        (topic) => data.find((item) => item.breadcrumbTitle === topic) || null,
+      )
+      .filter((item): item is MainPageProps => item !== null);
+  };
+
   getTopCategory = async (topCategorySlug: string): Promise<TopCategory> => {
     const data: TopCategory = await this.client.fetch(
       `*[_type == 'topCategory' && blog.slug.current == $topCategorySlug][0] {
         blog,
       }`,
-      { topCategorySlug: topCategorySlug }
+      { topCategorySlug: topCategorySlug },
     );
     return data;
-  }
+  };
 
-  getMainCategory = async (topCategorySlug: string, mainCategorySlug: string): Promise<MainCategory> => {
+  getMainCategory = async (
+    topCategorySlug: string,
+    mainCategorySlug: string,
+  ): Promise<MainCategory> => {
     const data: MainCategory = await this.client.fetch(
       `*[_type == 'mainCategory' && blog.slug.current == $mainCategorySlug && topCategory->blog.slug.current == $topCategorySlug][0]{
         blog,
@@ -46,12 +80,16 @@ export class Sanity {
           }
         }
       }`,
-      { mainCategorySlug: mainCategorySlug, topCategorySlug: topCategorySlug }
+      { mainCategorySlug: mainCategorySlug, topCategorySlug: topCategorySlug },
     );
     return data;
-  }
+  };
 
-  getSubCategory = async (topCategorySlug: string, mainCategorySlug: string, subCategorySlug: string): Promise<SubCategory> => {
+  getSubCategory = async (
+    topCategorySlug: string,
+    mainCategorySlug: string,
+    subCategorySlug: string,
+  ): Promise<SubCategory> => {
     const data: SubCategory = await this.client.fetch(
       `*[_type == 'subCategory' && blog.slug.current == $subCategorySlug && mainCategory->blog.slug.current == $mainCategorySlug && mainCategory->topCategory->blog.slug.current == $topCategorySlug][0]{
         blog,
@@ -72,10 +110,14 @@ export class Sanity {
           }
         }
       }`,
-      { mainCategorySlug: mainCategorySlug, topCategorySlug: topCategorySlug, subCategorySlug: subCategorySlug }
+      {
+        mainCategorySlug: mainCategorySlug,
+        topCategorySlug: topCategorySlug,
+        subCategorySlug: subCategorySlug,
+      },
     );
     return data;
-  }
+  };
 
   getRatgeberBlog = async (slug: string): Promise<RatgeberBlog> => {
     const data: RatgeberBlog = await this.client.fetch(
@@ -83,10 +125,10 @@ export class Sanity {
         category,
         content,
       }`,
-      { slug: slug }
+      { slug: slug },
     );
     return data;
-  }
+  };
 
   getLegalNotice = async (slug: string): Promise<RatgeberBlog> => {
     const data: RatgeberBlog = await this.client.fetch(
@@ -94,11 +136,10 @@ export class Sanity {
         blog,
         category,
       }`,
-      { slug: slug }
+      { slug: slug },
     );
     return data;
-  }
-
+  };
 
   getSitemapTopCategory = async (): Promise<TopCategory[]> => {
     const data: TopCategory[] = await this.client.fetch(
@@ -109,10 +150,10 @@ export class Sanity {
           slug
         }
       }
-      `
+      `,
     );
     return data;
-  }
+  };
 
   getSitemapMainCategory = async (): Promise<MainCategory[]> => {
     const data: MainCategory[] = await this.client.fetch(
@@ -128,10 +169,10 @@ export class Sanity {
           }
         }
       }
-      `
+      `,
     );
     return data;
-  }
+  };
 
   getSitemapSubCategory = async (): Promise<SubCategory[]> => {
     const data: SubCategory[] = await this.client.fetch(
@@ -152,8 +193,8 @@ export class Sanity {
           }
         }
       }
-      `
+      `,
     );
     return data;
-  }
+  };
 }

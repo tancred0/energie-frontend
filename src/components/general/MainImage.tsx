@@ -11,7 +11,7 @@ export default function MainImage({ img }: { img: ImageWithDetails }) {
         loading="lazy"
         alt={img.altText}
       />
-      <PortableBlogRenderer input={img.description} />
+      {/* <PortableBlogRenderer input={img.description} /> */}
     </div>
   )
 };

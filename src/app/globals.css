@@ -5,12 +5,11 @@
 * {
   scroll-behavior: smooth;
   overflow-wrap: break-word;
-  hyphens: auto;
 }
 
 @layer utilities {
   * {
-    @apply text-gray-600;
+    @apply text-gray-600 hyphens-auto md:hyphens-none
   }
 
   p {
@@ -107,7 +106,7 @@
   }
   
   .button {
-    @apply bg-green-90 text-white text-lg py-2 px-4 rounded-lg text-center no-underline
+    @apply bg-blue-20/95 text-white text-lg py-2 px-4 rounded-lg text-center no-underline
   }
 
   .button-blue {
