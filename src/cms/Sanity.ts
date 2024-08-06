@@ -48,11 +48,12 @@ export class Sanity {
 
     // Order the results to match the order in topics
     return topics
-      .map(
-        (topic) => data.find((item) => item.breadcrumbTitle === topic) || null,
-      )
-      .filter((item): item is MainPageProps => item !== null);
-  };
+    .map(
+      (topic) => data.find((item) => item.breadcrumbTitle === topic) ?? null,
+    )
+    .filter((item): item is MainPageProps => item !== null);
+};
+
 
   getTopCategory = async (topCategorySlug: string): Promise<TopCategory> => {
     const data: TopCategory = await this.client.fetch(

@@ -24,7 +24,7 @@ export default function Navigation() {
             </div>
             <div className="hidden md:display md:flex gap-x-4 flex-row ml-auto my-auto">
               <p className="my-auto text-base font-light py-2.5 px-5 rounded-full bg-gray-200">Kostenlos und unverbindlich</p>
-              {phoneNumber && (
+              {/* {phoneNumber && (
                 <Link href={`tel:${phoneNumber}`} className="flex flex-row my-auto gap-x-1 py-2.5 px-5 rounded-full bg-gray-200 no-underline hover:font-medium  ">
                   <Image
                     src={phoneLogo as StaticImageData}
@@ -34,7 +34,7 @@ export default function Navigation() {
                   />
                   <span className="ml-2 text-base text-gray-700">{phoneNumber}</span>
                 </Link>
-              )}
+              )} */}
             </div>
           </nav >
         </div>
