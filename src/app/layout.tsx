@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
-// import { GoogleTagManager } from "@next/third-parties/google";
-
+import { GoogleTagManager } from "@next/third-parties/google";
 
 import "./globals.css";
 import Navigation from "@/components/layout/Navigation";
@@ -21,7 +20,7 @@ export default function RootLayout({
         <main >{children}</main>
         <Footer />
       </body>
-      {/* <GoogleTagManager gtmId="GTM-WMTC6K4G" /> */}
+      <GoogleTagManager gtmId="GTM-WMTC6K4G" />
     </html>
   );
 }
