@@ -63,7 +63,7 @@ export default function Footer({ classname }: { classname?: string }) {
       <div className="py-2 px-10 bg-blue-40">
         <div className="max-w-[1200px] mx-auto pt-4 pb-2">
           <div className="grid grid-flow-col text-white justify-between gap-x-10">
-            <p className="text-base text-white mb-0">© {new Date().getFullYear()} - Energiberatungsportal</p>
+            <p className="text-base text-white mb-0">© {new Date().getFullYear()} - Energieberatungsportal</p>
             <div className="flex gap-4 flex-col sm:flex-row">
               <Link className="text-base no-underline text-white truncate" href="/impressum">Impressum</Link>
               <Link className="text-base no-underline text-white truncate" href="/datenschutz">Datenschutz</Link>
