@@ -20,7 +20,7 @@ export default function RootLayout({
         <main >{children}</main>
         <Footer />
       </body>
-      <GoogleTagManager gtmId="GTM-WMTC6K4G" />
+      {/* <GoogleTagManager gtmId="GTM-WMTC6K4G" /> */}
     </html>
   );
 }
